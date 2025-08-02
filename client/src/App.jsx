@@ -1,18 +1,25 @@
 import React from 'react'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import About from './components/About'
-import Services from './components/Services'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+import Home from './pages/Home'
+import Doctors from './pages/Doctors'
+import PRdv from './pages/PRdv'
+
+
 
 const App = () => {
   return (
-    <div>
-      <Header></Header>
-      <Hero></Hero>
-      <About></About>
-      <Services></Services>
-  </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/medecins" element={<Doctors />} />
+        <Route path="/rdv" element={<PRdv />} />
+
+
+      </Routes>
+    </Router>
   )
 }
+
 
 export default App

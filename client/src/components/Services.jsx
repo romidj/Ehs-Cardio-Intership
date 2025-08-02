@@ -38,24 +38,25 @@ const Services = () => {
 
           <Swiper
             breakpoints={{
-              340: { slidesPerView: 2, spaceBetween: 15 },
-              700: { slidesPerView: 3, spaceBetween: 15 },
+              340: { slidesPerView: 1.5, spaceBetween: 15 },
+              640: { slidesPerView: 2, spaceBetween: 15 },
+              768: { slidesPerView: 3, spaceBetween: 20 },
               1024: { slidesPerView: 4, spaceBetween: 20 },
             }}
             freeMode={true}
             pagination={{ clickable: true }}
             modules={[FreeMode, Pagination]}
-            className="max-w-[90%] lg:max-w-[80%] mx-auto"
+            className="max-w-[95%] lg:max-w-[90%] mx-auto"
           >
             {serviceData.map((item) => (
-              <SwiperSlide key={item.title}>
-                <div className="flex flex-col gap-4 mb-14 group relative shadow-lg text-white rounded-xl px-4 py-8 h-[250px] w-[215px] lg:h-[300px] lg:w-[250px] overflow-hidden cursor-pointer">
+              <SwiperSlide key={item.title} className="flex justify-center">
+                <div className="group relative shadow-lg text-white rounded-xl overflow-hidden h-[250px] w-full max-w-[215px] lg:h-[300px] lg:max-w-[250px] cursor-pointer">
                   <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: `url(${item.backgroundImage})` }}
                   />
                   <div className="absolute inset-0 bg-black opacity-30 group-hover:opacity-50 transition duration-300" />
-                  <div className="relative z-10 flex flex-col justify-center items-center text-center h-full">
+                  <div className="relative z-10 flex flex-col justify-center items-center text-center h-full px-4">
                     <h1 className="text-lg font-semibold mb-2">{item.title}</h1>
                     <p className="text-sm">{item.content}</p>
                   </div>
