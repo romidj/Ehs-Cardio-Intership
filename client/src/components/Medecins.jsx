@@ -44,7 +44,9 @@ const Medecins = () => {
             <div className='container mx-auto px-4'>
                 <header className='text-center mb-16 relatice'>
                     <span className='absolute -top-10 -left-1/2 transform -translate-x-0.5 w-20 h-20 rounded-full bg-red-100 opacity-30 z-0 ' aria-hidden='true'></span>
-                    <h2 className='text-3xl md:text-4xl font-bold text-blue-900 mb-4 relative z-10'> Rencontrez notre  <span className='text-red-700'>Equipe d'experts</span></h2>
+                    <h2 className='text-3xl md:text-4xl font-bold text-red-700 mb-2 relative z-10'> Serviceb Radiologie</h2>
+                    <p className='text-lg text-blue-950 maw-w-2xl mx-auto mb-8 relative z-10'>Nous avos: Scanner, IRM, IRM, Scanner avec une equipe de professionnels</p>
+                    <h2 className='text-xl md:text-2xl font-bold text-blue-900 mb-2 relative z-10'> Rencontrez notre  <span className='text-red-700'>Equipe d'experts</span></h2>
                     <p className='text-lg text-blue-950 maw-w-2xl mx-auto relative z-10'>Des professionnels dévoués au service de votre santé</p>
                 </header>
                 <ul className='grid grid:cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 '>

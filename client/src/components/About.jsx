@@ -52,7 +52,7 @@ const About = () => {
                         </header>
                         <section>
                             <a
-                                href="#dossier"
+                                href="/rdv"
                                 className="border-2 border-red-700 text-red-700 font-medium hover:bg-red-700 hover:text-white px-6 py-3 rounded-full shadow"
                             >
                                 Prendre Rendez-vous
@@ -72,7 +72,7 @@ const About = () => {
                         <p className='text-lg text-blue-900 mb-6 font-medium'>Consultez la liste complète ici.</p>
                     </div>
                     <a
-                        href="#dossier"
+                        href="/dossier"
                         className="inline-block w-full sm:w-auto text-center border-2 border-red-700 text-red-700 font-medium hover:bg-red-700 hover:text-white px-4 py-3 rounded-full shadow sm:whitespace-nowrap"
                     >
                         Consulter les documents nécessaires

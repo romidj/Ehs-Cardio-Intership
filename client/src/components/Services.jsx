@@ -38,7 +38,7 @@ const Services = () => {
 
           <Swiper
             breakpoints={{
-              340: { slidesPerView: 1.5, spaceBetween: 15 },
+              200: { slidesPerView: 1, spaceBetween: 10, centeredSlides: true }, // add centeredSlides
               640: { slidesPerView: 2, spaceBetween: 15 },
               768: { slidesPerView: 3, spaceBetween: 20 },
               1024: { slidesPerView: 4, spaceBetween: 20 },
@@ -46,8 +46,7 @@ const Services = () => {
             freeMode={true}
             pagination={{ clickable: true }}
             modules={[FreeMode, Pagination]}
-            className="max-w-[95%] lg:max-w-[90%] mx-auto"
-          >
+            className="w-full max-w-[95%] lg:max-w-[90%] mx-auto"          >
             {serviceData.map((item) => (
               <SwiperSlide key={item.title} className="flex justify-center">
                 <div className="group relative shadow-lg text-white rounded-xl overflow-hidden h-[250px] w-full max-w-[215px] lg:h-[300px] lg:max-w-[250px] cursor-pointer">

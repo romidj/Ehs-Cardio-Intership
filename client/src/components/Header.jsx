@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,9 +8,9 @@ const Header = () => {
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     const navLinks = [
-        { href: '#home', label: 'Accueil' },
+        { href: '/', label: 'Accueil' },
         { href: '#Services', label: 'Services' },
-        { href: '#Medecins', label: 'Nos médecins' },
+        { href: '/medecins', label: 'Nos médecins' },
     ];
 
     return (
@@ -20,24 +21,25 @@ const Header = () => {
                 </a>
 
                 {/* Desktop nav */}
-                <nav className="hidden md:flex items-center space-x-6">
+                <nav className="hidden md:flex items-center gap-2 space-x-6">
                     <ul className="flex space-x-6">
                         {navLinks.map((link, index) => (
                             <li key={index}>
-                                <a
-                                    href={link.href}
-                                    className="text-gray-900 hover:text-blue-700 hover:font-bold transition-colors duration-200"
+                                <NavLink
+                                    to={link.href}
+                                    className="text-blue-950 font-medium hover:text-red-700 hover:font-medium transition-colors duration-200"
                                 >
                                     {link.label}
-                                </a>
+                                </NavLink>
                             </li>
                         ))}
                     </ul>
                     <a
-                        href="#appointment"
-                        className="ml-4 bg-red-700 hover:bg-red-600 text-white px-4 py-2 rounded-full transition duration-150 shadow focus:outline-none"
+                        href="/rdv"
+                        className="bg-red-700 border border-red-700 text-white  px-6 py-3 rounded-full shadow
+                        hover:bg-transparent hover:text-red-700 hover:border hover:border-red-700 transition-colors duration-100"
                     >
-                        Prendre Rendez-vous
+                        Prendre Un Rendez-vous
                     </a>
                 </nav>
 

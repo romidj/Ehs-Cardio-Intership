@@ -17,16 +17,16 @@ const Hero = () => {
             <article className="container mx-auto px-4 py-5 flex flex-col md:flex-row items-start gap-8">
                 {/* Left: Text */}
                 <div className="md:w-1/2 text-center my-12 md:text-left">
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-2">
-                        EHS <mark className="text-blue-800 bg-transparent">Yacefi Omar</mark>
+                    <h1 className="text-4xl md:text-5xl font-bold text-blue-950 mb-2">
+                        EHS <mark className="text-blue-800 bg-transparent">Yacef Omar</mark>
                     </h1>
-                    <p className="text-lg text-gray-800 mb-6 max-w-xl mx-auto md:mx-0">
-                        L’EHS Yacefi Omar, situé à Draâ Ben Khedda, est un hôpital spécialisé
+                    <p className="text-lg text-blue-950 mb-6 max-w-xl mx-auto md:mx-0">
+                        L’EHS Yacef Omar, situé à Draâ Ben Khedda, est un hôpital spécialisé
                         en cardiologie et chirurgie cardiaque.
                     </p>
                     <nav className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8">
                         <a
-                            href="#rdv"
+                            href="/rdv"
                             className="bg-red-700 border-red-700 text-white font-medium px-6 py-3 rounded-full shadow
              hover:bg-transparent hover:text-red-700 hover:border hover:border-red-700 transition-colors duration-200"
                         >
@@ -34,7 +34,7 @@ const Hero = () => {
                         </a>
 
                         <a
-                            href="#dossier"
+                            href="/dossier"
                             className="border border-red-700 text-red-700 hover:bg-red-700 hover:text-white px-6 py-3 rounded-full shadow"
                         >
                             Dossier à fournir
