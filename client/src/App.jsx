@@ -4,11 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Doctors from './pages/Doctors'
 import PRdv from './pages/PRdv'
-import Login from './pages/admin/Login'
 import Todayrdv from './pages/admin/Todayrdv'
+import Signin from './pages/admin/Signin'
 import Waitingrdv from './pages/admin/Waitingrdv'
 import Dashboard from './pages/admin/Dashboard'
 import Dossier from './pages/dossier'
+import AdminPanel from './pages/admin/AdminPanel'
 
 
 const App = () => {
@@ -23,10 +24,10 @@ const App = () => {
 
 
 
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Signin />} />
         <Route path="/rdv_today" element={<Todayrdv />} />
         <Route path="/rdv_en_attente" element={<Waitingrdv />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin/:serviceName/*" element={<AdminPanel />} />
 
 
 

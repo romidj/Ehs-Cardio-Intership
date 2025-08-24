@@ -133,8 +133,7 @@ const Todayrdv = () => {
   });
 
   return (
-    <div className="flex">
-      <Sidebar />
+
       <div className="flex-1 ml-2 flex flex-col min-h-screen py-5 px-4 sm:px-6 lg:px-2">
         {/* Search */}
         <div className="mb-4 relative">
@@ -295,7 +294,6 @@ const Todayrdv = () => {
           </div>
         )}
       </div>
-    </div>
   );
 };
 

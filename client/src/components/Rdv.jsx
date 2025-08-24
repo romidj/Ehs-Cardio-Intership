@@ -7,13 +7,21 @@ import {
   faPhoneVolume,
 } from '@fortawesome/free-solid-svg-icons';
 import downlad from '../assets/download.pdf';
+import axios from "axios";
+
 
 
 const Rdv = () => {
 
+  const [fullname, setFullname] = useState("");
+  const [phone, setPhone] = useState("");
+  const [date_naissance, setDatenaissance] = useState("");
+  const [commentaire, setCommentaire] = useState("");
+
+
 
   const [step, setStep] = useState(1);
-  const [selectedSexe, setSelectedSexe] = useState('');
+  const [selectedsex, setSelectedsex] = useState('');
   const [selectedWilaya, setSelectedWilaya] = useState('');
   const [selectedService, setSelectedService] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
@@ -22,7 +30,7 @@ const Rdv = () => {
     name: "",
     phone: "",
     date_naissance: "",
-    sexe: "",
+    sex: "",
     wilaya: "",
     commentaire: "",
     ordonnance: null,
@@ -39,12 +47,12 @@ const Rdv = () => {
 
 
 
-  const sexe = [
+  const sex = [
     {
-      type: "Homme"
+      type: "Male"
     },
     {
-      type: "Femme"
+      type: "Female"
     }
   ]
   const Wilayas = [
@@ -66,11 +74,10 @@ const Rdv = () => {
     { nbr: 16, name: "Alger" },
   ]
   const Services = [
-    { value: "Cardiology", label: "Consultation Cardiologie" },
-    { value: "Chirurgie_Cardiaque", label: "Chirurgie Cardiaque" },
+    { value: "Consultation_cardiaque", label: "Consultation Cardiologie" },
+    { value: "Chirurgie_cardiaque", label: "Chirurgie Cardiaque" },
     { value: "Laboratoire", label: "Laboratoire" },
     { value: "Radiologie", label: "Radiologie" },
-    { value: "Anestésie Rhéanimation", label: "Anestésie Rhéanimation" }
 
 
   ]
@@ -85,56 +92,36 @@ const Rdv = () => {
       { value: "Urine", label: "Analyse d'urine" },
     ]
   };
-  const contactItems = [
-    {
-      icon: faLocationDot,
-      title: 'Localisation',
-      content: (
-        <p className="text-blue-950">
-          Bd KASRI Ahmed, Draâ Ben Khedda,Tizi Ouzou
-        </p>
-      ),
-    },
-    {
-      icon: faPhoneVolume,
-      title: 'Numéros de télephone',
-      content: (
-        <p className="text-blue-950">
-          Urgences:{' '}
-          <a href="#" className="hover:text-red-700">
-            555-555-555
-          </a>{' '}
-          <br />
-          Rendez-vous:{' '}
-          <a href="#" className="hover:text-red-700">
-            555-555-555
-          </a>
-        </p>
-      ),
-    },
-    {
-      icon: faEnvelope,
-      title: 'Email',
-      content: (
-        <p className="text-blue-950">
-          <a href="#" className="hover:text-red-700">
-            ehs@gmail.com
-          </a>
-        </p>
-      ),
-    },
-    {
-      icon: faClock,
-      title: 'Horaires de travail',
-      content: (
-        <p className="text-blue-950">
-          Dimanche - Jeudi : 8:30 - 16:00 <br />
-          Vendredi - Samedi : Fermé <br />
-          Urgences: 24/24 et 7/7
-        </p>
-      ),
-    },
-  ];
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!selectedService) return alert("Choisissez un service");
+    if (!fullname || !phone || !date_naissance || !selectedWilaya) {
+      return alert("Veuillez remplir tous les champs obligatoires");
+    }
+
+    const payload = {
+      name: fullname.trim(),
+      phone: phone.trim(),
+      date_naissance,
+      wilaya: selectedWilaya,
+      nom_service: selectedService,
+      commentaire: commentaire.trim(),
+      sex: selectedsex.trim()
+    };
+
+    try {
+      console.log("📦 Payload envoyé:", payload);  // <-- add this
+      const res = await axios.post("http://localhost:8081/api/rdv", payload);
+      alert("✅ Rendez-vous enregistré !");
+    } catch (err) {
+      console.error(err);
+      alert("❌ Erreur lors de l’enregistrement du rendez-vous.");
+    }
+
+  };
+
 
   return (
     <article className="py-20 overflow-hidden bg-gradient-to-r from-blue-100 to-red-100">
@@ -214,7 +201,8 @@ const Rdv = () => {
                   <header className="flex justify-between">
                     <h2 className="text-2xl text-blue-950 font-bold mb-4">Informations personnelles</h2>
                     <h2 className='text-red-700 text-2xl font-bold mb-2 '>Etape 2/2</h2>
-                  </header>                  <form className="space-y-6">
+                  </header>
+                  <form className="space-y-6" onSubmit={handleSubmit}>
                     <fieldset className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-blue-950 font-medium mb-2">Nom et Prénom</label>
@@ -225,6 +213,8 @@ const Rdv = () => {
                           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
                           placeholder="Nom et Prénom"
                           required
+                          onChange={(e) => setFullname(e.target.value)}
+
                         />
                       </div>
 
@@ -237,6 +227,8 @@ const Rdv = () => {
                           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
                           placeholder="0X XX XX XX XX"
                           required
+                          onChange={(e) => setPhone(e.target.value)}
+
                         />
                       </div>
                     </fieldset>
@@ -250,22 +242,24 @@ const Rdv = () => {
                           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
                           placeholder="Nom et Prénom"
                           required
+                          onChange={(e) => setDatenaissance(e.target.value)}
+
                         />
                       </div>
 
                       <div>
-                        <label className="block text-blue-950 font-medium mb-2">Sexe</label>
+                        <label className="block text-blue-950 font-medium mb-2">sex</label>
                         <select
-                          id="sexe"
-                          name="sexe"
-                          value={selectedSexe}
-                          onChange={(e) => setSelectedSexe(e.target.value)}
+                          id="sex"
+                          name="sex"
+                          value={selectedsex}
+                          onChange={(e) => setSelectedsex(e.target.value)}
                           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
                         >
                           <option value="" disabled>Veuillez choisir</option>
-                          {sexe.map((Sexe) => (
-                            <option key={Sexe.type} value={Sexe.type}>
-                              {Sexe.type}
+                          {sex.map((sex) => (
+                            <option key={sex.type} value={sex.type}>
+                              {sex.type}
                             </option>
                           ))}
                         </select>
@@ -329,6 +323,8 @@ const Rdv = () => {
                           rows={4}
                           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent resize-none"
                           placeholder="Quelque chose à ajouter ? Préference de date ou d'heure ? ..."
+                          onChange={(e) => setCommentaire(e.target.value)}
+
                         />
                       </div>
 
