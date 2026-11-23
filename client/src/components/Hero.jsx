@@ -12,9 +12,9 @@ const Hero = () => {
     return (
         <section
             id="home"
-            className="bg-gradient-to-r from-blue-100 to-red-100 flex items-start pt-4"
+            className="min-h-[calc(100vh-4.5rem)] bg-gradient-to-r from-blue-100 to-red-100 flex items-center"
         >
-            <article className="container mx-auto px-4 py-5 flex flex-col md:flex-row items-start gap-8">
+            <article className="container mx-auto px-6 py-5 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center gap-8">
                 {/* Left: Text */}
                 <div className="md:w-1/2 text-center my-12 md:text-left">
                     <h1 className="text-4xl md:text-5xl font-bold text-blue-950 mb-2">

@@ -9,13 +9,13 @@ const Header = () => {
 
     const navLinks = [
         { href: '/', label: 'Accueil' },
-        { href: '#Services', label: 'Services' },
+        { href: '/#services', label: 'Services' },
         { href: '/medecins', label: 'Nos médecins' },
     ];
 
     return (
         <header className="bg-gradient-to-r from-blue-100 to-red-100 sticky top-0 z-50">
-            <div className="container mx-auto px-4 py-1 flex justify-between items-center">
+            <div className="container mx-auto px-6 sm:px-8 lg:px-12 py-1 flex justify-between items-center">
                 <a href="#home" className="flex items-center">
                     <img src={logo} alt="Logo" className="h-16 w-auto" />
                 </a>
@@ -25,12 +25,21 @@ const Header = () => {
                     <ul className="flex space-x-6">
                         {navLinks.map((link, index) => (
                             <li key={index}>
-                                <NavLink
-                                    to={link.href}
-                                    className="text-blue-950 font-medium hover:text-red-700 hover:font-medium transition-colors duration-200"
-                                >
-                                    {link.label}
-                                </NavLink>
+                                {link.href === '/#services' ? (
+                                    <a
+                                        href={link.href}
+                                        className="text-blue-950 font-medium hover:text-red-700 hover:font-medium transition-colors duration-200"
+                                    >
+                                        {link.label}
+                                    </a>
+                                ) : (
+                                    <NavLink
+                                        to={link.href}
+                                        className="text-blue-950 font-medium hover:text-red-700 hover:font-medium transition-colors duration-200"
+                                    >
+                                        {link.label}
+                                    </NavLink>
+                                )}
                             </li>
                         ))}
                     </ul>
@@ -61,7 +70,7 @@ const Header = () => {
 
             {/* Mobile Menu */}
             {isMenuOpen && (
-                <aside className="md:hidden bg-white shadow-lg px-4 py-4">
+                <aside className="md:hidden bg-white shadow-lg px-6 sm:px-8 py-4">
                     <nav>
                         <ul className="flex flex-col space-y-3">
                             {navLinks.map((link, index) => (

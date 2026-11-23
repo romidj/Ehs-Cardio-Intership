@@ -23,8 +23,8 @@ const Services = () => {
   ]
 
   return (
-    <section id='about' className='py-14 overflow-hidden bg-gradient-to-r from-blue-100 to-red-100'>
-      <div className='container mx-auto px-4'>
+    <section id='services' className='scroll-mt-20 py-14 overflow-hidden bg-gradient-to-r from-blue-100 to-red-100'>
+      <div className='container mx-auto px-6 sm:px-8 lg:px-12'>
         <aside className='bg-white rounded-2xl p-8 md:p-12 shadow-lg relative overflow-hidden'>
           <span className='absolute -top-20 -right-20 w-64 h-64 rounded-full bg-red-300 opacity-40' aria-hidden='true'></span>
           <span className='absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-blue-300 opacity-40' aria-hidden='true'></span>

@@ -3,7 +3,7 @@ import React from 'react'
 const Maps = () => {
     return (
         <section id='about' className=' overflow-hidden bg-gradient-to-r from-blue-100 to-red-100'>
-            <div className='container mx-auto px-4'>
+            <div className='container mx-auto px-6 sm:px-8 lg:px-12'>
                 <aside className='bg-white rounded-2xl p-2  md:p-5 shadow-lg relative overflow-hidden'>
 
                     <header className='px-6 pt-5'>

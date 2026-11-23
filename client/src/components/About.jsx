@@ -10,7 +10,7 @@ const About = () => {
 
     return (
         <section id='about' className='py-14 overflow-hidden bg-gradient-to-r from-blue-100 to-red-100'> {/* ✅ "bg-gradient", not "bg-gradinet" */}
-            <div className='container mx-auto px-4'>
+            <div className='container mx-auto px-6 sm:px-8 lg:px-12'>
                 <article className='flex flex-col lg:flex-row items-center gap-12'>
 
                     {/* Image Section */}
