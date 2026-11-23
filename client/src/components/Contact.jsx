@@ -60,7 +60,7 @@ const Contact = () => {
     ];
 
     return (
-        <section id='about' className='overflow-hidden pb-10 bg-gradient-to-r from-blue-100 to-red-100'>
+        <section id='contact' className='overflow-hidden pb-10 bg-gradient-to-r from-blue-100 to-red-100'>
             <div className='container mx-auto px-6 sm:px-8 lg:px-12'>
                 <aside className='bg-white rounded-2xl p-2 md:p-5 shadow-lg relative overflow-hidden'>
                     {/* Flex container: column on small screens, row on md+ */}

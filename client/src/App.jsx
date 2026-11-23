@@ -8,7 +8,7 @@ import Todayrdv from './pages/admin/Todayrdv'
 import Signin from './pages/admin/Signin'
 import Waitingrdv from './pages/admin/Waitingrdv'
 import Dashboard from './pages/admin/Dashboard'
-import Dossier from './pages/dossier'
+import Dossier from './pages/Dossier'
 import AdminPanel from './pages/admin/AdminPanel'
 
 
